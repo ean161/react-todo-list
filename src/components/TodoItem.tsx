@@ -16,7 +16,7 @@ export default function TodoItem({ todo, onToggle, onRemove }: TodoItemProps) {
         <>
             <Item variant="outline" className="py-1">
                 <ItemMedia>
-                    <Checkbox onCheckedChange={() => onToggle(todo.id)} id={`checkbox-${todo.id}`} />
+                    <Checkbox checked={todo.isCompleted} onCheckedChange={() => onToggle(todo.id)} id={`checkbox-${todo.id}`} />
                 </ItemMedia>
                 <ItemContent>
                     <ItemTitle>
