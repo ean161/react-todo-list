@@ -1,7 +1,9 @@
 import type { Todo } from "@/types/Todo"
-import { Item, ItemContent, ItemMedia, ItemTitle } from "./ui/item"
+import { Item, ItemActions, ItemContent, ItemMedia, ItemTitle } from "./ui/item"
 import TodoItemLabel from "./TodoItemLabel"
 import { Checkbox } from "./ui/checkbox";
+import { Button } from "./ui/button";
+import { Trash2 } from "lucide-react";
 
 interface TodoItemProps {
     todo: Todo,
@@ -21,6 +23,11 @@ export default function TodoItem({ todo, onToggle, onRemove }: TodoItemProps) {
                         <TodoItemLabel todo={todo} />
                     </ItemTitle>
                 </ItemContent>
+                <ItemActions>
+                    <Button onClick={() => onRemove(todo.id)} variant="destructive">
+                        <Trash2 color="white" />
+                    </Button>
+                </ItemActions>
             </Item>
         </>
     );
