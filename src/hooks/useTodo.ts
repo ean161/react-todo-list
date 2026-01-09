@@ -6,6 +6,10 @@ export default function useTodo() {
     const [todos, setTodos] = useState<Todo[]>([]);
 
     const add = (title: string) => {
+        if (title.length === 0) {
+            return;
+        }
+
         setTodos((prev) => [...prev, {
             id: uuidv4(),
             title: title,
