@@ -14,7 +14,7 @@ interface TodoItemProps {
 export default function TodoItem({ todo, onToggle, onRemove }: TodoItemProps) {
     return (
         <>
-            <Item>
+            <Item variant="outline" className="py-1">
                 <ItemMedia>
                     <Checkbox onCheckedChange={() => onToggle(todo.id)} id={`checkbox-${todo.id}`} />
                 </ItemMedia>
@@ -24,8 +24,8 @@ export default function TodoItem({ todo, onToggle, onRemove }: TodoItemProps) {
                     </ItemTitle>
                 </ItemContent>
                 <ItemActions>
-                    <Button onClick={() => onRemove(todo.id)} variant="destructive">
-                        <Trash2 color="white" />
+                    <Button onClick={() => onRemove(todo.id)} variant="link">
+                        <Trash2 color="red" />
                     </Button>
                 </ItemActions>
             </Item>

@@ -1,6 +1,8 @@
 import type { Todo } from "@/types/Todo";
 import TodoItem from "./TodoItem";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
+import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
+import { X } from "lucide-react";
 
 interface TodoListProps {
     todos: Todo[],
@@ -16,7 +18,13 @@ export default function TodoList({ todos, onToggle, onRemove }: TodoListProps) {
                     <CardTitle>Todo list</CardTitle>
                     <CardDescription>List of todos</CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="space-y-4">
+                    {todos.length == 0 &&
+                        <Alert>
+                            <X />
+                            <AlertTitle>No todo found</AlertTitle>
+                        </Alert>
+                    }
                     {todos.map((todo) => {
                         return <TodoItem todo={todo} onToggle={onToggle} onRemove={onRemove} />
                     })}

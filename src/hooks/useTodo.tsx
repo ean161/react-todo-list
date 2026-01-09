@@ -5,12 +5,6 @@ import { v4 as uuidv4 } from "uuid";
 export default function useTodo() {
     const [todos, setTodos] = useState<Todo[]>([]);
 
-    useEffect(() => {
-        add("Task 1");
-        add("Task 2");
-        add("Task 3");
-    }, []);
-
     const add = (title: string) => {
         setTodos((prev) => [...prev, {
             id: uuidv4(),
