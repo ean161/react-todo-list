@@ -1,4 +1,6 @@
 import type { Todo } from "@/types/Todo"
+import { Item, ItemContent, ItemTitle } from "./ui/item"
+import TodoItemLabel from "./TodoItemLabel"
 
 interface TodoItemProps {
     todo: Todo,
@@ -9,9 +11,13 @@ interface TodoItemProps {
 export default function TodoItem({ todo, onToggle, onRemove }: TodoItemProps) {
     return (
         <>
-            <div>
-                <p>Todo item {todo.id}</p>
-            </div>
+            <Item>
+                <ItemContent>
+                    <ItemTitle>
+                        <TodoItemLabel todo={todo} />
+                    </ItemTitle>
+                </ItemContent>
+            </Item>
         </>
-    )
+    );
 }
